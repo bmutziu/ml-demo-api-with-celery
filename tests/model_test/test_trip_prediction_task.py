@@ -1,7 +1,7 @@
 from core.utilities.cls_constants import APIReply
 from core.services.trip_duration_prediction_task import (
     TripDurationTask,
-    preprare_feature,
+    prepare_feature,
 )
 
 
@@ -23,7 +23,7 @@ def test_trip_duration_task_prepare_feature():
     do_location: int = 205
     trip_distance: float = 3
     # When
-    features = preprare_feature(pu_location, do_location, trip_distance)
+    features = prepare_feature(pu_location, do_location, trip_distance)
     # Then
     expected_features = {"PU_DO": "130_205", "trip_distance": 3}
     assert features["PU_DO"] == expected_features["PU_DO"]

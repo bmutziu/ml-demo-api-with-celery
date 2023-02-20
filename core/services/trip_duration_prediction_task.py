@@ -19,7 +19,7 @@ with open(TRIP_DURATION_MODEL_PATH, "rb") as f_in:
     dv, model = pickle.load(f_in)
 
 
-def preprare_feature(pu_location_id: int, do_location_id: int, trip_distance: float):
+def prepare_feature(pu_location_id: int, do_location_id: int, trip_distance: float):
     features = {}
     features["PU_DO"] = f"{pu_location_id}_{do_location_id}"
     features["trip_distance"] = trip_distance
@@ -33,7 +33,7 @@ class TripDurationTask:
             timings = collections.OrderedDict()
             step_name = "feature_prepare"
             with DictKeyTimer(timings, step_name):
-                features = preprare_feature(
+                features = prepare_feature(
                     pu_location_id, do_location_id, trip_distance
                 )
             step_name = "model_predict"

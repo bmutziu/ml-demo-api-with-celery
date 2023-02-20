@@ -47,6 +47,7 @@ then
     yes_or_no "It will stop and remove everything, including the Redis server. Are you sure?"
     sleep 1
     yes_or_no "Redis keeps the embedding data. Have you informed the person in charge?"
+    sleep 3
 
     docker-compose ${DC_FILES} down
 fi
